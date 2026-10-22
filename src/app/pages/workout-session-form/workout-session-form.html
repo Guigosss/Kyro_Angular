@@ -1,0 +1,52 @@
+<h1>New session</h1>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <label for="name">Name: </label>
+    <input id="name" type="text" formControlName="name">
+    @if (form.get('name')?.hasError('required') && form.get('name')?.touched){
+      <span class="error">Name required</span>
+    }
+  </div>
+
+  <div>
+    <label for="date">Date: </label>
+    <input id="date" type="date" formControlName="date">
+    @if (form.get('date')?.hasError('required') && form.get('date')?.touched){
+      <span class="error">Date required</span>
+    }
+  </div>
+
+  <div>
+    <label for="notes">Notes: </label>
+    <textarea id="notes" formControlName="notes"></textarea>
+    @if (form.get('notes')?.hasError('maxLength')){
+      <span class="error">Maximum 500 characters</span>
+    }
+  </div>
+
+  <h2>Exercises</h2>
+
+  @for (exercise of exercisesForm.controls; track $index; let i = $index) {
+    <app-exercise-form
+      [group]="exercise"
+      [index]="i"
+      [availableExercises]="availableExercises()"
+      (remove)="removeExercise(i)"
+      (addSet)="addSet(i)"
+      (removeSet)="removeSet(i, $event)"
+    />
+  }
+
+  @if (exercisesForm.hasError('required') && exercisesForm.touched) {
+    <p class="error">Add at least one exercise</p>
+  }
+
+  <button type="button" (click)="addExercise()">Add exercise</button>
+
+  @if (errorMessage()) {
+    <p class="error">{{ errorMessage() }}</p>
+  }
+
+  <button type="submit">Save session</button>
+</form>

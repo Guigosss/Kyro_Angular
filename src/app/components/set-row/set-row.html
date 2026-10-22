@@ -1,0 +1,13 @@
+<div class="set-row" [formGroup]="group()">
+  <span class="set-number">Set {{ index() + 1 }}</span>
+
+  <label>Weight (kg)
+    <input type="number" formControlName="weight" step="0.5">
+  </label>
+
+  <label>Repetitions
+    <input type="number" formControlName="reps">
+  </label>
+
+  <button type="button" class="danger" (click)="remove.emit()">Remove set</button>
+</div>

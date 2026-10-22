@@ -1,1 +1,150 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface-hover: #eef1f8;
+  --text: #1c2333;
+  --muted: #667085;
+  --border: #d9dee8;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --danger: #dc2626;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgb(16 24 40 / 8%), 0 1px 2px rgb(16 24 40 / 6%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1420;
+    --surface: #1a2133;
+    --surface-hover: #232c44;
+    --text: #e8ecf5;
+    --muted: #9aa4bd;
+    --border: #2c3650;
+    --primary: #6366f1;
+    --primary-hover: #818cf8;
+    --danger: #f87171;
+    --shadow: 0 1px 3px rgb(0 0 0 / 40%);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 1.75rem;
+}
+
+h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+a {
+  color: var(--primary);
+}
+
+/* Formulaires */
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  &:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 1px;
+  }
+}
+
+textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+form > div {
+  margin-bottom: 1rem;
+}
+
+fieldset {
+  margin: 0 0 1rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+legend {
+  padding: 0 0.5rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.error {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--danger);
+}
+
+/* Boutons : les boutons « submit » sont les actions principales */
+button,
+a.button {
+  display: inline-block;
+  padding: 0.55rem 1rem;
+  font: inherit;
+  color: var(--text);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--surface-hover);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &[type='submit'],
+  &.button {
+    color: #fff;
+    background: var(--primary);
+    border-color: var(--primary);
+
+    &:hover {
+      background: var(--primary-hover);
+    }
+  }
+
+  &.danger {
+    color: var(--danger);
+    border-color: var(--danger);
+  }
+}

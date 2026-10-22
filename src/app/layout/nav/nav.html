@@ -1,0 +1,8 @@
+@if (_authService.connectedUser(); as connected) {
+  <nav>
+    <a routerLink="/home">Home</a>
+    <a routerLink="/sessions">My sessions</a>
+    <span>{{ connected.user.username }}</span>
+    <button type="button" (click)="logout()">Log Out</button>
+  </nav>
+}

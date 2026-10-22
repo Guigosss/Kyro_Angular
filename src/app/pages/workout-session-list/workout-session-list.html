@@ -1,0 +1,15 @@
+<h1>My sessions</h1>
+
+<a class="button" routerLink="/sessions/new">New session</a>
+
+@if (sessions().length === 0) {
+  <p>No sessions for now</p>
+} @else {
+  <ul>
+    @for (session of sessions(); track session.id) {
+      <li>
+        <app-session-card [session]="session" />
+      </li>
+    }
+  </ul>
+}

@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+form {
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  text-align: center;
+}
+
+button[type='submit'] {
+  width: 100%;
+}

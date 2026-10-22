@@ -1,0 +1,20 @@
+<fieldset [formGroup]="group()">
+  <legend>Exercise {{ index() + 1 }}</legend>
+
+  <select formControlName="exerciseId">
+    <option [ngValue]="null" disabled>Choose an exercise</option>
+    @for (e of availableExercises(); track e.id) {
+      <option [ngValue]="e.id">{{ e.name }}</option>
+    }
+  </select>
+  @if (group().get('exerciseId')?.hasError('required') && group().get('exerciseId')?.touched) {
+    <span class="error">Choose an exercise</span>
+  }
+
+  @for (set of sets.controls; track $index; let j = $index) {
+    <app-set-row [group]="set" [index]="j" (remove)="removeSet.emit(j)" />
+  }
+
+  <button type="button" (click)="addSet.emit()">Add set</button>
+  <button type="button" class="danger" (click)="remove.emit()">Remove exercise</button>
+</fieldset>
