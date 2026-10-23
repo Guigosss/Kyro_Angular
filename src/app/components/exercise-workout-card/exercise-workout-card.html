@@ -1,0 +1,20 @@
+<h2>{{ exercise().exerciseName }}</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Set</th>
+    <th>Weight (kg)</th>
+    <th>Reps</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (set of exercise().sets; track set.id) {
+      <tr>
+        <td>{{ set.orderIndex }}</td>
+        <td>{{ set.weight }}</td>
+        <td>{{ set.reps }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

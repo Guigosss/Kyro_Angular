@@ -1,4 +1,4 @@
-<div class="info">
+<div class="info" [routerLink]="['/session', session().id]">
   <strong>{{ session().nom }}</strong>
   <span class="meta">
     {{ session().date | date: 'dd/MM/yyyy' }} · {{ session().exercises.length }} exercise(s)

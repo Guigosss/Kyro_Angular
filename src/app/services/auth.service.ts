@@ -1,4 +1,4 @@
-import { inject, Injectable, Service, signal, WritableSignal } from '@angular/core';
+import { computed, inject, Injectable, Service, signal, WritableSignal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserTokenResponseDto } from '../models/user-token-response-dto';
 import { LoginRequestDto } from '../models/login-request-dto';
@@ -13,6 +13,8 @@ export class AuthService {
   private readonly _http: HttpClient = inject(HttpClient);
 
   readonly connectedUser: WritableSignal<UserTokenResponseDto | undefined>;
+
+  readonly isAdmin = computed(() => this.connectedUser()?.user.role.name === 'ADMIN');
 
   constructor() {
     const user = localStorage.getItem('connectedUser');

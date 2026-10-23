@@ -17,5 +17,12 @@
 
 .info {
   display: flex;
+  flex: 1;
   flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+}
+
+:host:hover {
+  border-color: var(--primary);
 }

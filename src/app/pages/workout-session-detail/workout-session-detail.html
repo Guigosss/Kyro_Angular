@@ -1,0 +1,20 @@
+<a routerLink="/sessions">Back to sessions</a>
+
+@if (session(); as workoutSession) {
+  <header>
+    <h1>{{ workoutSession.nom }}</h1>
+    <span class="meta">{{ workoutSession.date | date: 'dd/MM/yyyy' }}</span>
+  </header>
+
+  @if (workoutSession.notes){
+    <p class="notes">{{ workoutSession.notes }}</p>
+  }
+
+  @for (exercise of workoutSession.exercises; track $index) {
+    <section>
+      <app-exercise-workout-card [exercise]="exercise" />
+    </section>
+  }
+} @else if (errorMessage()){
+  <p class="error">{{ errorMessage() }}</p>
+}

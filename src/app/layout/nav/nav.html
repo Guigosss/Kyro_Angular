@@ -2,6 +2,9 @@
   <nav>
     <a routerLink="/home">Home</a>
     <a routerLink="/sessions">My sessions</a>
+    @if (_authService.isAdmin()){
+      <a routerLink="/exercises">Exercises</a>
+    }
     <span>{{ connected.user.username }}</span>
     <button type="button" (click)="logout()">Log Out</button>
   </nav>

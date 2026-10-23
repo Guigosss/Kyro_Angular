@@ -8,8 +8,7 @@ export const isAuthenticatedGuard: CanActivateFn = (route, state) => {
   const _router: Router = inject(Router);
 
   if(!_authService.connectedUser()){
-    _router.navigate(['/login']);
-    return false;
+    return _router.createUrlTree(['/login']);
   }
 
   return true;

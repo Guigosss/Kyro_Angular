@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.meta,
+.notes {
+  color: var(--muted);
+}
+
+section {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
