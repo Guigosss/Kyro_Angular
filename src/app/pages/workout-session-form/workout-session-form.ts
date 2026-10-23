@@ -13,6 +13,7 @@ import { ExerciseForm } from '../../components/exercise-form/exercise-form';
   styleUrl: './workout-session-form.scss',
   templateUrl: './workout-session-form.html',
 })
+
 export class WorkoutSessionForm {
   private readonly _fb: FormBuilder = inject(FormBuilder);
   private readonly _router: Router = inject(Router);

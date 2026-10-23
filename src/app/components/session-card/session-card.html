@@ -1,4 +1,8 @@
-<strong>{{ session().nom }}</strong>
-<span class="meta">
-  {{ session().date | date: 'dd/MM/yyyy' }} · {{ session().exercises.length }} exercise(s)
-</span>
+<div class="info">
+  <strong>{{ session().nom }}</strong>
+  <span class="meta">
+    {{ session().date | date: 'dd/MM/yyyy' }} · {{ session().exercises.length }} exercise(s)
+  </span>
+</div>
+
+<button type="button" class="danger" (click)="remove.emit()">Remove</button>

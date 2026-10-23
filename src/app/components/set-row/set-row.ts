@@ -7,6 +7,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './set-row.html',
   styleUrl: './set-row.scss',
 })
+
 export class SetRow {
   readonly group = input.required<FormGroup>();
   readonly index = input.required<number>();

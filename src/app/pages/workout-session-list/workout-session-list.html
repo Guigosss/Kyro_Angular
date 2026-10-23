@@ -8,8 +8,22 @@
   <ul>
     @for (session of sessions(); track session.id) {
       <li>
-        <app-session-card [session]="session" />
+        <app-session-card [session]="session" (remove)="askDelete(session)"/>
       </li>
     }
   </ul>
+}
+
+@if (sessionToDelete(); as session) {
+  <app-delete-confirmation
+    [itemName]="session.nom"
+    (cancelled)="closeConfirmation()"
+    (confirmed)="confirmDelete()"
+  >
+    <h2>Remove session</h2>
+    <ng-template #customActions>
+      <button type="button" (click)="closeConfirmation()">Cancel</button>
+      <button type="button" (click)="confirmDelete()" class="danger">Confirm</button>
+    </ng-template>
+  </app-delete-confirmation>
 }

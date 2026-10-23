@@ -10,6 +10,7 @@ import { LoginRequestDto } from '../../models/login-request-dto';
   styleUrl: './login.scss',
   templateUrl: './login.html',
 })
+
 export class Login {
   private readonly _fb: FormBuilder = inject(FormBuilder);
   private readonly _router: Router = inject(Router);

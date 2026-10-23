@@ -1,0 +1,16 @@
+<div class="dialog" role="alertdialog" aria-modal="true">
+  <div class="header">
+    <ng-content />
+  </div>
+
+  <p>Are you sure you want to delete <strong>{{ itemName() }}</strong> ? This action is final.</p>
+
+  <div class="buttons">
+    @if (customActions(); as actions){
+      <ng-container [ngTemplateOutlet]="actions" />
+    } @else {
+      <button type="button" (click)="cancelled.emit()">Cancel</button>
+      <button type="button" (click)="confirmed.emit()" class="danger">Confirm</button>
+    }
+  </div>
+</div>

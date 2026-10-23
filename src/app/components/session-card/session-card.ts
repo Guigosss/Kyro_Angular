@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { WorkoutSessionResponseDto } from '../../models/workout-session-response-dto';
 
@@ -8,6 +8,9 @@ import { WorkoutSessionResponseDto } from '../../models/workout-session-response
   styleUrl: './session-card.scss',
   templateUrl: './session-card.html',
 })
+
 export class SessionCard {
   readonly session = input.required<WorkoutSessionResponseDto>();
+
+  readonly remove = output<void>();
 }

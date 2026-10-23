@@ -9,6 +9,7 @@ import { SetRow } from '../set-row/set-row';
   templateUrl: './exercise-form.html',
   styleUrl: './exercise-form.scss',
 })
+
 export class ExerciseForm {
   readonly group = input.required<FormGroup>();
   readonly index = input.required<number>();

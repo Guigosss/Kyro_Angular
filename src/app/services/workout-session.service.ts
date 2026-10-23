@@ -19,4 +19,16 @@ export class WorkoutSessionService {
   find(): Observable<PageDto<WorkoutSessionResponseDto>> {
     return this._http.get<PageDto<WorkoutSessionResponseDto>>(this.apiUrl);
   }
+
+  findById(id: number): Observable<WorkoutSessionResponseDto> {
+    return this._http.get<WorkoutSessionResponseDto>(`${this.apiUrl}/${id}`);
+  }
+
+  update(id: number, request: WorkoutSessionRequestDto): Observable<void> {
+    return this._http.put<void>(`${this.apiUrl}/${id}`, request);
+  }
+
+  delete(id: number): Observable<void> {
+    return this._http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

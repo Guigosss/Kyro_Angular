@@ -4,7 +4,7 @@ import { inject } from '@angular/core';
 
 const PUBLIC_URLS: string[] = ['/login', '/register'];
 
-//- Acts on HTTP requests sent to the backend.
+//- An Angular interceptor intercepts HTTP requests to add the JWT to the Authorization header, allowing the backend to authenticate requests.
 export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
   const authService: AuthService = inject(AuthService);
   const token = authService.connectedUser()?.token;
