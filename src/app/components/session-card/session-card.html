@@ -5,4 +5,8 @@
   </span>
 </div>
 
-<button type="button" class="danger" (click)="remove.emit()">Remove</button>
+<div class="actions">
+  <a class="button" [routerLink]="['/sessions', session().id, 'edit']">Edit</a>
+  <button type="button" class="danger" (click)="remove.emit()">Remove</button>
+</div>
+

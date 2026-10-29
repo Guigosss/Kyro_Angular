@@ -17,6 +17,7 @@ export const routes: Routes = [
       { path: 'home', component: Home },
       { path: 'sessions', component: WorkoutSessionList },
       { path: 'sessions/new', component: WorkoutSessionForm },
+      { path: 'sessions/:id/edit', component: WorkoutSessionForm },
       { path: 'session/:id', component: WorkoutSessionDetail },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
     ],

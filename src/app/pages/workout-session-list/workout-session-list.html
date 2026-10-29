@@ -8,7 +8,10 @@
   <ul>
     @for (session of sessions(); track session.id) {
       <li>
-        <app-session-card [session]="session" (remove)="askDelete(session)"/>
+        <app-session-card
+          [session]="session"
+          (remove)="askDelete(session)"
+        />
       </li>
     }
   </ul>

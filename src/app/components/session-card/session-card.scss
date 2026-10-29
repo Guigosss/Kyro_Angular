@@ -23,6 +23,11 @@
   text-decoration: none;
 }
 
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
 :host:hover {
   border-color: var(--primary);
 }
